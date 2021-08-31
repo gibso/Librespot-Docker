@@ -14,6 +14,11 @@ services:
     environment:
       PULSE_SERVER: 172.17.0.1
 
+  pulse:
+    build:
+      context: .
+      target: pulseaudio
+
   # compiler:
   #   image: librespot-cross
   #   build:
