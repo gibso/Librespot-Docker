@@ -1,0 +1,21 @@
+services:
+  app:
+    image: librespot
+    build: .
+    devices:
+      - /dev/snd
+    ports:
+      - 46335:46335/tcp
+      - 46335:46335/udp
+    command:
+      - --name=hey
+    volumes:
+      - ~/.config/pulse/cookie:/home/librespot/.pulse-cookie
+    environment:
+      PULSE_SERVER: 172.17.0.1
+
+  compiler:
+    image: librespot-cross
+    build:
+      context: librespot
+      dockerfile: contrib/Dockerfile
