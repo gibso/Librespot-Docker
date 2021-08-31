@@ -23,4 +23,4 @@ COPY --from=build-env /app/target/release/librespot /usr/bin/librespot
 RUN useradd -ms /bin/bash librespot
 USER librespot
 
-CMD /usr/bin/librespot
+ENTRYPOINT [ "/usr/bin/librespot" ]

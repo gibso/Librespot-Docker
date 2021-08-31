@@ -1,12 +1,9 @@
 services:
-  app:
+  librespot:
     image: librespot
     build: .
     devices:
       - /dev/snd
-    ports:
-      - 46335:46335/tcp
-      - 46335:46335/udp
     volumes:
       - ~/.config/pulse/cookie:/home/librespot/.pulse-cookie
     environment:
