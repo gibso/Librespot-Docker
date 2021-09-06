@@ -2,9 +2,10 @@ services:
   librespot:
     image: librespot
     build: .
+    network_mode: host
     devices:
       - /dev/snd
     volumes:
       - ~/.config/pulse/cookie:/home/librespot/.pulse-cookie
     environment:
-      PULSE_SERVER: 172.17.0.1
+      PULSE_SERVER: 127.0.0.1
