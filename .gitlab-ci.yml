@@ -1,0 +1,15 @@
+image: docker
+
+build image:
+  stage: build
+  only:
+    - master
+  script: docker build -t $CI_REGISTRY_IMAGE .
+
+publish image:
+  stage: deploy
+  only:
+    - master
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker push $CI_REGISTRY_IMAGE
